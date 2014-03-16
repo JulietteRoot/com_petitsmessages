@@ -1,17 +1,28 @@
-<?PHP
+<?php
+// No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 
+// import Joomla view library
 jimport('joomla.application.component.view');
 
-
+/**
+ * HTML View class for the HelloWorld Component
+ */
 class PetitsmessagesViewPetitsmessages extends JViewLegacy
 {
-    /* Surcharge de la méthode display de la classe JViewLegacy */
-    function display($tpl = null) 
-    {
-        /* Appel de la méthode getMessage du modèle */
-        $this->message = $this->get("Message");
-        
-        parent::display($tpl);
-    }
+	// Overwriting JViewLegacy display method
+	function display($tpl = null)
+	{
+		// Assign data to the view
+		$this->message = $this->get('Message'); // méthode get du model
+
+		// Check for errors.
+		if (count($errors = $this->get('Errors')))
+		{
+			JLog::add(implode('<br />', $errors), JLog::WARNING, 'jerror');
+			return false;
+		}
+		// Display the view
+		parent::display($tpl);
+	}
 }
