@@ -19,8 +19,8 @@ class PetitsmessagesModelPetitsmessages2 extends JModelList
                 $db = JFactory::getDBO();
                 $query = $db->getQuery(true);
                 // Select some fields
-                $query->select('titre,contenu');
-                // From the petitsmessage table
+                $query->select('id,titre,contenu');
+                // From the petitsmessages table
                 $query->from('#__petitsmessages');
                 return $query;
         }

@@ -30,7 +30,22 @@ class PetitsmessagesViewPetitsmessages2 extends JViewLegacy
                 $this->items = $items;
                 $this->pagination = $pagination;
  
+                // Set the toolbar
+                $this->addToolBar();
+                
                 // Display the template
                 parent::display($tpl);
+        }
+        
+        /**
+         * Setting the toolbar
+         */
+        protected function addToolBar()
+        {
+        	//JToolBarHelper::title(JText::_('COM_HELLOWORLD_MANAGER_HELLOWORLDS'));
+        	JToolBarHelper::title('ma barre d\'outils');
+        	JToolBarHelper::deleteList('', 'petitsmessages2.delete');
+        	JToolBarHelper::editList('petitsmessages.edit');
+        	JToolBarHelper::addNew('petitsmessages.add');
         }
 }
