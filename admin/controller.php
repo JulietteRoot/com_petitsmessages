@@ -19,7 +19,8 @@ class PetitsmessagesController extends JControllerLegacy
         {
                 // set default view if not set
                 $input = JFactory::getApplication()->input;
-                $input->set('view', $input->getCmd('view', 'Petitsmessages'));
+                //$input->set('view', $input->getCmd('view', 'Petitsmessages'));
+                $input->set('view', $input->getCmd('view', 'Petitsmessages2'));
  
                 // call parent behavior
                 parent::display($cachable);
